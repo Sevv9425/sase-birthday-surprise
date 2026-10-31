@@ -1,28 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Sase ❤️</title>
 
 <style>
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     font-family: Georgia, serif;
     background: linear-gradient(135deg, #100d19, #35152d, #100d19);
     color: white;
     text-align: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
+
+/* PAGE DESIGN */
 
 .page {
     display: none;
     min-height: 100vh;
-    padding: 65px 22px;
+    padding: 55px 20px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -35,18 +41,23 @@ body {
 
 h1 {
     color: #ffabc8;
-    font-size: clamp(32px, 7vw, 52px);
+    font-size: clamp(30px, 7vw, 52px);
+    margin: 15px 0;
 }
 
 h2 {
     color: #ffd4e4;
+    margin: 12px 0;
 }
 
 p {
     max-width: 550px;
     line-height: 1.9;
-    font-size: 18px;
+    font-size: 17px;
+    margin: 10px auto;
 }
+
+/* BUTTONS */
 
 button {
     background: #ffabc8;
@@ -55,7 +66,7 @@ button {
     border-radius: 30px;
     padding: 14px 27px;
     margin: 12px;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -64,6 +75,15 @@ button:hover {
     transform: scale(1.06);
     background: #ffd4e4;
 }
+
+/* HEART */
+
+.heart {
+    font-size: 45px;
+    animation: beat 1.2s infinite;
+}
+
+/* ORIGINAL PHOTO */
 
 .photo {
     width: min(85%, 320px);
@@ -75,57 +95,220 @@ button:hover {
     margin: 20px;
 }
 
-.heart {
-    font-size: 42px;
-    animation: beat 1.2s infinite;
-}
-
 .small {
     color: #e9c7d7;
     font-size: 14px;
 }
 
+/* MEMORIES GALLERY */
+
+.memory-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,171,200,0.35);
+    border-radius: 20px;
+    padding: 15px;
+    width: min(90%, 320px);
+    margin: 18px auto;
+    box-shadow: 0 8px 30px #00000040;
+    transition: 0.4s;
+}
+
+.memory-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 35px #ffabc855;
+}
+
+.memory-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 13px;
+}
+
+.memory-caption {
+    color: #ffc4da;
+    font-size: 16px;
+    margin-top: 14px;
+}
+
+/* FINAL SURPRISE */
+
+.sparkle {
+    font-size: 30px;
+    animation: beat 1.5s infinite;
+}
+
+.final-heart {
+    font-size: 75px;
+    margin: 20px;
+    animation: heartbeat 1.4s infinite;
+}
+
+.final-message {
+    display: none;
+    width: min(100%, 600px);
+    padding: 20px;
+    animation: fade 2s ease;
+}
+
+.final-message.show {
+    display: block;
+}
+
+/* ANIMATIONS */
+
 @keyframes fade {
-    from {opacity: 0; transform: translateY(12px);}
-    to {opacity: 1; transform: translateY(0);}
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes beat {
-    50% {transform: scale(1.15);}
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* AUDIO PLAYER */
+
+audio {
+    width: min(90%, 320px);
+    margin: 20px auto;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+    .page {
+        padding: 40px 15px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .memory-card {
+        width: min(95%, 320px);
+    }
+
+    .memory-photo {
+        height: 260px;
+    }
+
+    button {
+        padding: 12px 22px;
+        font-size: 14px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
+<!-- PAGE 1: WELCOME -->
+
 <section class="page active" id="page1">
+
     <div class="heart">❤️</div>
+
     <p>A little surprise made with love...</p>
+
     <h1>Happy Birthday, Sase!</h1>
-    <p>To the person who became one of the most beautiful parts of my life. 🥹</p>
-    <button onclick="showPage(2)">Open Your Surprise 💌 →</button>
+
+    <p>
+        To the person who became one of the
+        most beautiful parts of my life. 🥹
+    </p>
+
+    <button onclick="showPage(2)">
+        Open Your Surprise 💌 →
+    </button>
+
 </section>
 
-<!-- PAGE 2 -->
+
+<!-- PAGE 2: OUR MEMORIES -->
+
 <section class="page" id="page2">
-    <h1>Our Memories 📸</h1>
-    <p>Un kooda irukkura ovvoru moment-um enakku romba special. ❤️</p>
 
-    <!-- Replace our-photo.jpg with your couple photo filename -->
-    <img class="photo" src="our_photo.png"
-         alt="Our favourite memory"
-         onerror="this.style.display='none';">
+    <h1>Our Little Memories 📸</h1>
 
-    <p>Same people, different days, countless memories. ♾️</p>
+    <p>
+        Every picture has a story.
+        Every story has a little piece of you and me. ❤️
+    </p>
+
+    <div class="memory-card">
+
+        <img src="our_photo.png"
+             class="memory-photo"
+             alt="Our first memory">
+
+        <p class="memory-caption">
+            A moment I wish I could relive again and again. ❤️
+        </p>
+
+    </div>
+
+    <div class="memory-card">
+
+        <img src="image1.jpg"
+             class="memory-photo"
+             alt="Our second memory">
+
+        <p class="memory-caption">
+            One of my favourite memories with you. 🥹
+        </p>
+
+    </div>
+
+    <div class="memory-card">
+
+        <img src="image2.png"
+             class="memory-photo"
+             alt="Our third memory">
+
+        <p class="memory-caption">
+            More memories, more smiles, more us. ♾️
+        </p>
+
+    </div>
+
+    <p>
+        And my favourite memories are still waiting to happen. 💗
+    </p>
+
     <button onclick="showPage(1)">← Back</button>
-    <button onclick="showPage(3)">Next Surprise 💗 →</button>
+
+    <button onclick="showPage(3)">
+        Next Surprise 💌 →
+    </button>
+
 </section>
 
-<!-- PAGE 3 -->
+
+<!-- PAGE 3: LETTER -->
+
 <section class="page" id="page3">
+
     <div class="heart">💌</div>
+
     <h1>A Letter for You</h1>
+
     <h2>Happy Birthday, En Uyire! ❤️</h2>
 
     <p>
@@ -148,20 +331,34 @@ button:hover {
 
     <p>
         Un birthday-la naan solla virumburadhu onnu dhaan...
+
         <br><strong>NEE ENAKKU ROMBA SPECIAL! ❤️</strong>
     </p>
 
     <button onclick="showPage(2)">← Back</button>
-    <button onclick="showPage(4)">One More Surprise 🎵 →</button>
+
+    <button onclick="showPage(4)">
+        One More Surprise 🎵 →
+    </button>
+
 </section>
 
-<!-- PAGE 4 -->
-<section class="page" id="page4">
-    <div class="heart">🎵</div>
-    <h1>Our Song ❤️</h1>
-    <p>Some songs don't just play... they bring back memories.</p>
 
-    <h2>Nithamum Kovil Sendru🤍</h2>
+<!-- PAGE 4: OUR SONG -->
+
+<section class="page" id="page4">
+
+    <div class="heart">🎵</div>
+
+    <h1>Our Song ❤️</h1>
+
+    <p>
+        Some songs don't just play...
+        they bring back memories.
+    </p>
+
+    <h2>Nithamum Kovil Sendru 🤍</h2>
+
     <p class="small">Our Starting Memories</p>
 
     <p>
@@ -169,70 +366,150 @@ button:hover {
         namma nyabagam varanum. 🥹
     </p>
 
-    <!-- Add your legally obtained audio file as our-song.mp3 -->
     <audio id="loveSong" controls preload="none">
         <source src="our_song.mpeg" type="audio/mpeg">
         Your browser does not support audio.
     </audio>
 
-    <p class="small">Add your own audio file to enable playback.</p>
+    <p class="small">
+        A song that reminds me of us. ❤️
+    </p>
 
     <button onclick="showPage(3)">← Back</button>
-    <button onclick="showPage(5)">Our Future ♾️ →</button>
+
+    <button onclick="showPage(5)">
+        Our Future ♾️ →
+    </button>
+
 </section>
 
-<!-- PAGE 5 -->
+
+<!-- PAGE 5: OUR FUTURE -->
+
 <section class="page" id="page5">
+
     <div class="heart">♾️</div>
+
     <h1>A Little More...</h1>
+
     <p>Some dreams I want to live with you. ❤️</p>
 
     <p>♡ Travel and explore beautiful places together.</p>
+
     <p>♡ Create countless happy memories.</p>
+
     <p>♡ Support each other's dreams.</p>
+
     <p>♡ Keep laughing at our silly jokes.</p>
+
     <p>♡ Keep choosing kindness and understanding. 🤍</p>
 
     <button onclick="showPage(4)">← Back</button>
-    <button onclick="showPage(6)">Your Final Surprise 🎂 →</button>
+
+    <button onclick="showPage(6)">
+        Your Final Surprise 🎂 →
+    </button>
+
 </section>
 
-<!-- PAGE 6 -->
+
+<!-- PAGE 6: FINAL SURPRISE -->
+
 <section class="page" id="page6">
-    <div class="heart">🎂❤️🎉</div>
 
-    <p>Innum neraya birthday un kooda celebrate pannanum...</p>
+    <div class="sparkle">✨ 💗 ✨</div>
 
-    <h1>Happy Birthday,<br>My Sase! ❤️</h1>
+    <h1>One Last Surprise...</h1>
+
+    <div class="final-heart">❤️</div>
 
     <p>
-        Thank you for being you.
-        I'm so happy to share these memories with you. 🤍
+        Sase, before you leave...
+        there's one more thing I want to tell you.
     </p>
 
-    <h2>With lots of love,</h2>
-    <h1>Sevv 💗</h1>
+    <button onclick="revealFinal()">
+        Tap for your final surprise 💌
+    </button>
 
-    <p>Forever grateful for our memories. ♾️</p>
+    <div class="final-message" id="finalMessage">
 
-    <button onclick="showPage(1)">Relive Our Story ❤️</button>
+        <h1>HAPPY BIRTHDAY, SASE! 🎂</h1>
+
+        <p>
+            Out of all the beautiful moments life can offer,
+            I'm grateful for the moments that brought you into my story.
+        </p>
+
+        <p>
+            May your smile never fade,
+            may your dreams come true,
+            and may happiness always find its way to you.
+        </p>
+
+        <h2>You're one of my favourite chapters. ❤️</h2>
+
+        <div class="final-heart">💗</div>
+
+        <h1>With Love,</h1>
+
+        <h1>SEVV ♡</h1>
+
+        <p>
+            One story. Countless memories.
+            Endless wishes. ♾️
+        </p>
+
+    </div>
+
+    <button onclick="showPage(5)">← Back</button>
+
+    <button onclick="showPage(1)">
+        Relive Our Story ❤️
+    </button>
+
 </section>
 
+
+<!-- JAVASCRIPT -->
+
 <script>
+
 function showPage(number) {
+
     document.querySelectorAll(".page").forEach(page => {
         page.classList.remove("active");
     });
 
-    document.getElementById("page" + number).classList.add("active");
+    document.getElementById("page" + number)
+        .classList.add("active");
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-    // Pause the song when leaving its page.
+    // Pause song when leaving the music page
+
     if (number !== 4) {
         document.getElementById("loveSong").pause();
     }
+
 }
+
+function revealFinal() {
+
+    const message = document.getElementById("finalMessage");
+
+    message.classList.add("show");
+
+    message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
 </script>
 
 </body>

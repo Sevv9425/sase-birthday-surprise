@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sase ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #100d19, #35152d, #100d19);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 65px 22px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: fade 1s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+h1 {
+    color: #ffabc8;
+    font-size: clamp(32px, 7vw, 52px);
+}
+
+h2 {
+    color: #ffd4e4;
+}
+
+p {
+    max-width: 550px;
+    line-height: 1.9;
+    font-size: 18px;
+}
+
+button {
+    background: #ffabc8;
+    color: #291323;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 27px;
+    margin: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    background: #ffd4e4;
+}
+
+.photo {
+    width: min(85%, 320px);
+    max-height: 380px;
+    object-fit: cover;
+    border: 7px solid white;
+    border-radius: 8px;
+    box-shadow: 0 0 30px #ffabc855;
+    margin: 20px;
+}
+
+.heart {
+    font-size: 42px;
+    animation: beat 1.2s infinite;
+}
+
+.small {
+    color: #e9c7d7;
+    font-size: 14px;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(12px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes beat {
+    50% {transform: scale(1.15);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+    <div class="heart">❤️</div>
+    <p>A little surprise made with love...</p>
+    <h1>Happy Birthday, Sase!</h1>
+    <p>To the person who became one of the most beautiful parts of my life. 🥹</p>
+    <button onclick="showPage(2)">Open Your Surprise 💌 →</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+    <h1>Our Memories 📸</h1>
+    <p>Un kooda irukkura ovvoru moment-um enakku romba special. ❤️</p>
+
+    <!-- Replace our-photo.jpg with your couple photo filename -->
+    <img class="photo" src="our_photo.png"
+         alt="Our favourite memory"
+         onerror="this.style.display='none';">
+
+    <p>Same people, different days, countless memories. ♾️</p>
+    <button onclick="showPage(1)">← Back</button>
+    <button onclick="showPage(3)">Next Surprise 💗 →</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+    <div class="heart">💌</div>
+    <h1>A Letter for You</h1>
+    <h2>Happy Birthday, En Uyire! ❤️</h2>
+
+    <p>
+        Nee en life-la vandhadhukku apram,
+        chinna chinna moments kooda azhagana
+        memories-ah maariduchu. 🥹
+    </p>
+
+    <p>
+        Un kooda sirikkura moments, pesura neram,
+        chinna chinna sandhoshangal...
+        idhellame enakku romba special.
+    </p>
+
+    <p>
+        Eppovume unakku happiness kidaikkanum.
+        Un dreams ellame fulfil aaganum.
+        Nee eppovume happy-ah irukkanum.
+    </p>
+
+    <p>
+        Un birthday-la naan solla virumburadhu onnu dhaan...
+        <br><strong>NEE ENAKKU ROMBA SPECIAL! ❤️</strong>
+    </p>
+
+    <button onclick="showPage(2)">← Back</button>
+    <button onclick="showPage(4)">One More Surprise 🎵 →</button>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+    <div class="heart">🎵</div>
+    <h1>Our Song ❤️</h1>
+    <p>Some songs don't just play... they bring back memories.</p>
+
+    <h2>Nithamum Kovil Sendru🤍</h2>
+    <p class="small">Our Starting Memories</p>
+
+    <p>
+        Unakku indha song kekkumbodhu
+        namma nyabagam varanum. 🥹
+    </p>
+
+    <!-- Add your legally obtained audio file as our-song.mp3 -->
+    <audio id="loveSong" controls preload="none">
+        <source src="our_song.mpeg" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
+
+    <p class="small">Add your own audio file to enable playback.</p>
+
+    <button onclick="showPage(3)">← Back</button>
+    <button onclick="showPage(5)">Our Future ♾️ →</button>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+    <div class="heart">♾️</div>
+    <h1>A Little More...</h1>
+    <p>Some dreams I want to live with you. ❤️</p>
+
+    <p>♡ Travel and explore beautiful places together.</p>
+    <p>♡ Create countless happy memories.</p>
+    <p>♡ Support each other's dreams.</p>
+    <p>♡ Keep laughing at our silly jokes.</p>
+    <p>♡ Keep choosing kindness and understanding. 🤍</p>
+
+    <button onclick="showPage(4)">← Back</button>
+    <button onclick="showPage(6)">Your Final Surprise 🎂 →</button>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+    <div class="heart">🎂❤️🎉</div>
+
+    <p>Innum neraya birthday un kooda celebrate pannanum...</p>
+
+    <h1>Happy Birthday,<br>My Sase! ❤️</h1>
+
+    <p>
+        Thank you for being you.
+        I'm so happy to share these memories with you. 🤍
+    </p>
+
+    <h2>With lots of love,</h2>
+    <h1>Sevv 💗</h1>
+
+    <p>Forever grateful for our memories. ♾️</p>
+
+    <button onclick="showPage(1)">Relive Our Story ❤️</button>
+</section>
+
+<script>
+function showPage(number) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number).classList.add("active");
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Pause the song when leaving its page.
+    if (number !== 4) {
+        document.getElementById("loveSong").pause();
+    }
+}
+</script>
+
+</body>
+</html>

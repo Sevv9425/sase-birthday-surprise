@@ -155,6 +155,33 @@ button:hover {
     display: block;
 }
 
+/* VIDEO PAGE DESIGN */
+
+.video-container {
+    width: min(90%, 650px);
+    padding: 15px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid #ffabc8;
+    border-radius: 22px;
+    box-shadow: 0 0 35px #ffabc855;
+    margin: 20px auto;
+}
+
+.final-video {
+    width: 100%;
+    max-height: 420px;
+    border-radius: 15px;
+    display: block;
+    background: black;
+}
+
+.video-caption {
+    color: #ffabc8;
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
 /* ANIMATIONS */
 
 @keyframes fade {
@@ -213,6 +240,15 @@ audio {
         padding: 12px 22px;
         font-size: 14px;
     }
+
+    .video-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .final-video {
+        max-height: 300px;
+    }
 }
 </style>
 </head>
@@ -253,7 +289,6 @@ audio {
     </p>
 
     <div class="memory-card">
-
         <img src="our_photo.png"
              class="memory-photo"
              alt="Our first memory">
@@ -261,11 +296,9 @@ audio {
         <p class="memory-caption">
             A moment I wish I could relive again and again. ❤️
         </p>
-
     </div>
 
     <div class="memory-card">
-
         <img src="image1.jpg"
              class="memory-photo"
              alt="Our second memory">
@@ -273,11 +306,9 @@ audio {
         <p class="memory-caption">
             One of my favourite memories with you. 🥹
         </p>
-
     </div>
 
     <div class="memory-card">
-
         <img src="image2.png"
              class="memory-photo"
              alt="Our third memory">
@@ -285,7 +316,6 @@ audio {
         <p class="memory-caption">
             More memories, more smiles, more us. ♾️
         </p>
-
     </div>
 
     <p>
@@ -331,7 +361,6 @@ audio {
 
     <p>
         Un birthday-la naan solla virumburadhu onnu dhaan...
-
         <br><strong>NEE ENAKKU ROMBA SPECIAL! ❤️</strong>
     </p>
 
@@ -464,6 +493,55 @@ audio {
 
     <button onclick="showPage(5)">← Back</button>
 
+    <!-- GO TO PAGE 7 -->
+
+    <button onclick="showPage(7)">
+        Finally, For You 🎬 →
+    </button>
+
+</section>
+
+
+<!-- PAGE 7: FINALLY, FOR YOU -->
+
+<section class="page" id="page7">
+
+    <div class="heart">❤️</div>
+
+    <h1>Finally, For You...</h1>
+
+    <p>
+        I saved one last surprise for you.
+        This little video comes straight from my heart. 🥹
+    </p>
+
+    <div class="video-container">
+
+        <video class="final-video"
+               id="birthdayVideo"
+               controls
+               playsinline
+               preload="metadata">
+
+            <source src="our_vdo_compressed.mp4" type="video/mp4">
+
+            Your browser does not support video.
+        </video>
+
+        <p class="video-caption">
+            A little something, made specially for you. ❤️
+        </p>
+
+    </div>
+
+    <h2>Every second has a little piece of my heart. 💗</h2>
+
+    <h1>Just for You, Sase! ♾️</h1>
+
+    <p>With love, Sevv ❤️</p>
+
+    <button onclick="showPage(6)">← Back</button>
+
     <button onclick="showPage(1)">
         Relive Our Story ❤️
     </button>
@@ -489,10 +567,16 @@ function showPage(number) {
         behavior: "smooth"
     });
 
-    // Pause song when leaving the music page
+    // Pause song when leaving music page
 
     if (number !== 4) {
         document.getElementById("loveSong").pause();
+    }
+
+    // Pause video when leaving video page
+
+    if (number !== 7) {
+        document.getElementById("birthdayVideo").pause();
     }
 
 }
